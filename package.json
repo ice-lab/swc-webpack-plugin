@@ -1,6 +1,6 @@
 {
   "name": "swc-webpack-plugin",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "Minify bundle with swc in webpack",
   "keywords": [
     "swc",
@@ -48,6 +48,7 @@
     "prettier": "^2.3.0",
     "regenerator-runtime": "^0.13.7",
     "rimraf": "^3.0.2",
+    "semantic-release": "^17.4.3",
     "swc-loader": "^0.1.14",
     "typescript": "^4.2.4",
     "unionfs": "^4.4.0",
@@ -64,7 +65,8 @@
     "lint": "eslint",
     "lint:fix": "eslint --fix",
     "test": "jest --coverage",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "semantic-release": "semantic-release"
   },
   "lint-staged": {
     "*.{js,ts}": "eslint --cache --fix"

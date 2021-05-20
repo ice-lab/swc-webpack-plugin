@@ -2,7 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/swc-webpack-plugin)](https://www.npmjs.com/package/swc-webpack-plugin)
 [![npm](https://img.shields.io/npm/dw/swc-webpack-plugin)](https://www.npmjs.com/package/swc-webpack-plugin)
-[![actions](https://github.com/soulwu/swc-webpack-plugin/actions/workflows/node.js.yml/badge.svg)](https://github.com/soulwu/swc-webpack-plugin/actions/workflows/node.js.yml)
+[![ci](https://github.com/soulwu/swc-webpack-plugin/actions/workflows/ci.yml/badge.svg)](https://github.com/soulwu/swc-webpack-plugin/actions/workflows/ci.yml)
 ![David](https://img.shields.io/david/soulwu/swc-webpack-plugin)
 
 Minify bundle with swc in webpack
