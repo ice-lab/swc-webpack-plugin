@@ -63,7 +63,8 @@
     "build": "rimraf lib && tsc",
     "lint": "eslint",
     "lint:fix": "eslint --fix",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "prepublishOnly": "npm run build"
   },
   "lint-staged": {
     "*.{js,ts}": "eslint --cache --fix"
