@@ -79,7 +79,7 @@ export async function build(
     configure?.(config);
 
     // CI env was getting different chunk ids from snapshot/local
-    config.optimization.moduleIds = "named";
+    // config.optimization.moduleIds = "named";
 
     const compiler = webpack(config);
 
