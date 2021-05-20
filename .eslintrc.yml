@@ -1,0 +1,3 @@
+root: true
+extends:
+  - '@dawnjs/eslint-config-dawn/typescript'
