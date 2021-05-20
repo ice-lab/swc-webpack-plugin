@@ -9,7 +9,7 @@
     "minify"
   ],
   "engines": {
-    "node": ">=10"
+    "node": ">=12"
   },
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
