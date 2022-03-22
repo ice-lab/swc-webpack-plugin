@@ -13,6 +13,7 @@
   },
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "homepage": "https://github.com/ice-lab/swc-webpack-plugin#readme",
   "repository": "git@github.com:ice-lab/swc-webpack-plugin.git",
   "author": "soulwu <longgui.wjb@alibaba-inc.com>",
   "license": "MIT",
