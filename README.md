@@ -1,3 +1,5 @@
+# Notice: recommend to use terser-webpack-plugin, support uglify, esbuild, and swc. [doc](https://webpack.js.org/plugins/terser-webpack-plugin/#swc).
+
 # swc-webpack-plugin
 
 [![npm](https://img.shields.io/npm/v/swc-webpack-plugin)](https://www.npmjs.com/package/swc-webpack-plugin)
