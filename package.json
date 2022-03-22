@@ -1,6 +1,6 @@
 {
   "name": "swc-webpack-plugin",
-  "version": "0.0.0-development",
+  "version": "2.0.0",
   "description": "Minify bundle with swc in webpack",
   "keywords": [
     "swc",
