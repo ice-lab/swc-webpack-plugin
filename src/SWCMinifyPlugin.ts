@@ -16,20 +16,14 @@ const pluginName = "swc-minify";
 export class SWCMinifyPlugin {
   private readonly sync: boolean;
 
-  private readonly options: JsMinifyOptions;
+  private readonly options: JsMinifyOptions = { compress: true, mangle: true };
 
   constructor(options: MinifyPluginOptions = {}) {
     const { sync, ...restOptions } = options;
 
     this.sync = sync;
-    this.options = restOptions;
 
-    if (typeof options.compress === "undefined") {
-      this.options.compress = true;
-    }
-    if (typeof options.mangle === "undefined") {
-      this.options.mangle = true;
-    }
+    Object.assign(this.options, restOptions);
   }
 
   apply(compiler: webpack.Compiler) {
