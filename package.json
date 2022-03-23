@@ -1,6 +1,6 @@
 {
   "name": "swc-webpack-plugin",
-  "version": "0.0.0-development",
+  "version": "2.0.0",
   "description": "Minify bundle with swc in webpack",
   "keywords": [
     "swc",
@@ -13,7 +13,8 @@
   },
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "repository": "git@github.com:soulwu/swc-webpack-plugin.git",
+  "homepage": "https://github.com/ice-lab/swc-webpack-plugin#readme",
+  "repository": "git@github.com:ice-lab/swc-webpack-plugin.git",
   "author": "soulwu <longgui.wjb@alibaba-inc.com>",
   "license": "MIT",
   "files": [

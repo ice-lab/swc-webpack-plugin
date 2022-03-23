@@ -1,10 +1,10 @@
-import { Options, transform, transformSync } from "@swc/core";
+import { JsMinifyOptions, minify, minifySync } from "@swc/core";
 import webpack from "webpack";
 import { RawSource, SourceMapSource } from "webpack-sources";
 
 const { version } = require("../package.json");
 
-export interface MinifyPluginOptions extends Options {
+export interface MinifyPluginOptions extends JsMinifyOptions {
   sync?: boolean;
 }
 
@@ -16,17 +16,14 @@ const pluginName = "swc-minify";
 export class SWCMinifyPlugin {
   private readonly sync: boolean;
 
-  private readonly options: Options;
+  private readonly options: JsMinifyOptions = { compress: true, mangle: true };
 
   constructor(options: MinifyPluginOptions = {}) {
     const { sync, ...restOptions } = options;
 
     this.sync = sync;
-    this.options = restOptions;
 
-    if (typeof options.minify === "undefined") {
-      this.options.minify = true;
-    }
+    Object.assign(this.options, restOptions);
   }
 
   apply(compiler: webpack.Compiler) {
@@ -65,7 +62,7 @@ export class SWCMinifyPlugin {
       options: { devtool },
     } = compilation.compiler;
     const sourcemap =
-      this.options.sourceMaps === undefined ? devtool && devtool.includes("source-map") : this.options.sourceMaps;
+      this.options.sourceMap === undefined ? devtool && devtool.includes("source-map") : this.options.sourceMap;
     const assets = compilation.getAssets().filter(asset => !asset.info.minimized && isJsFile.test(asset.name));
     if (this.sync) {
       return this.processAssetsSync(assets, sourcemap, compilation);
@@ -78,10 +75,9 @@ export class SWCMinifyPlugin {
     assets.forEach(asset => {
       const { source, map } = asset.source.sourceAndMap();
       const sourceAsString = source.toString();
-      const result = transformSync(sourceAsString, {
+      const result = minifySync(sourceAsString, {
         ...this.options,
-        sourceMaps: sourcemap,
-        sourceFileName: asset.name,
+        sourceMap: Boolean(sourcemap),
       });
       compilation.updateAsset(
         asset.name,
@@ -105,10 +101,9 @@ export class SWCMinifyPlugin {
       assets.map(async asset => {
         const { source, map } = asset.source.sourceAndMap();
         const sourceAsString = source.toString();
-        const result = await transform(sourceAsString, {
+        const result = await minify(sourceAsString, {
           ...this.options,
-          sourceMaps: sourcemap,
-          sourceFileName: asset.name,
+          sourceMap: Boolean(sourcemap),
         });
 
         compilation.updateAsset(
